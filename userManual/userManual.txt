@@ -1,0 +1,241 @@
+Function for Categories
+----------------------------------------------------------------------------------------
+
+1. Add new  category
+
+Method : POST
+url : add-category
+Request Body:
+
+    {
+        "categoryName": "rakesh",
+        "categoryDescription": "This is rakesh to electronic equipments"
+    }
+
+Response Body :
+
+    {
+        "categoryId": "CTGY-2",
+        "categoryName": "rakesh",
+        "categoryDescription": "This is rakesh to electronic equipments"
+    }
+
+
+2. Update a category
+
+Method : PUT
+url : update-category
+
+Request Body :
+{
+        "categoryId": "CTGY-2",
+        "categoryName": "rakesh",
+        "categoryDescription": "This is rakesh to electronic equipments"
+}
+
+
+Response Body :
+{
+        "categoryId": "CTGY-2",
+        "categoryName": "rakesh",
+        "categoryDescription": "This is rakesh to electronic equipments"
+}
+
+
+3. Delete Category
+
+Method : DELETE
+url : delete-category
+
+Request Body :
+    Not required
+Response body :
+if deleted successfully
+    Status: 200 OK
+else
+    Status : 500 INTERNAL_SERVER_ERROR
+
+
+4. List of all category
+
+Method : GET
+url : all-category
+
+Request Body :
+    Not required
+
+Response Body :
+[
+    {
+        "categoryId": "CTGY-1",
+        "categoryName": "electronic",
+        "categoryDescription": "This is related to electronic equipments"
+    },
+    {
+        "categoryId": "CTGY-2",
+        "categoryName": "rakesh",
+        "categoryDescription": "This is rakesh to electronic equipments"
+    }
+]
+
+------------------------------------------------------------------------------------------------------
+Function for Assets
+------------------------------------------------------------------------------------------------------
+
+1. Add a new asset
+Method : POST
+url : /asset
+
+Request Body :
+{
+    "assetName" : "laptop",
+    "assetPurchaseDate" : "2002-09-11",
+    "assetConditionNotes" : "all set",
+    "assetCategory" : "electronic",
+    "assetAssignmentStatus" : "AVAILABLE"
+}
+Response Body :
+{
+    "assetId": "AST-5",
+    "assetName": "laptop",
+    "assetPurchaseDate": "2002-09-11T00:00:00.000+00:00",
+    "assetConditionNotes": "all set",
+    "assetCategory": "electronic",
+    "assetAssignmentStatus": "AVAILABLE"
+}
+
+2.All assets
+Method : GET
+url : all-assets
+Request Body :
+    Not Required
+Response Body :
+[
+    {
+        "assetId": "AST-3",
+        "assetName": "laptop",
+        "assetPurchaseDate": null,
+        "assetConditionNotes": "all set",
+        "assetCategory": "electronic",
+        "assetAssignmentStatus": "AVAILABLE"
+    },
+    {
+        "assetId": "AST-4",
+        "assetName": "laptop",
+        "assetPurchaseDate": null,
+        "assetConditionNotes": "all set",
+        "assetCategory": "electronic",
+        "assetAssignmentStatus": "AVAILABLE"
+    },
+    {
+        "assetId": "AST-5",
+        "assetName": "laptop",
+        "assetPurchaseDate": "2002-09-11",
+        "assetConditionNotes": "all set",
+        "assetCategory": "electronic",
+        "assetAssignmentStatus": "AVAILABLE"
+    }
+]
+
+
+3. Find assets by name
+Method : GET
+url : /asset/{assetName}
+Request Body :
+    Not required
+Response Body :
+[
+    {
+        "assetId": "AST-1",
+        "assetName": "laptop",
+        "assetPurchaseDate": null,
+        "assetConditionNotes": "all set",
+        "assetCategory": "electronic",
+        "assetAssignmentStatus": "AVAILABLE"
+    },
+    {
+        "assetId": "AST-2",
+        "assetName": "laptop",
+        "assetPurchaseDate": null,
+        "assetConditionNotes": "all set",
+        "assetCategory": "electronic",
+        "assetAssignmentStatus": "AVAILABLE"
+    },
+    {
+        "assetId": "AST-3",
+        "assetName": "laptop",
+        "assetPurchaseDate": null,
+        "assetConditionNotes": "all set",
+        "assetCategory": "electronic",
+        "assetAssignmentStatus": "AVAILABLE"
+    },
+    {
+        "assetId": "AST-4",
+        "assetName": "laptop",
+        "assetPurchaseDate": null,
+        "assetConditionNotes": "all set",
+        "assetCategory": "electronic",
+        "assetAssignmentStatus": "AVAILABLE"
+    },
+    {
+        "assetId": "AST-5",
+        "assetName": "laptop",
+        "assetPurchaseDate": "2002-09-11",
+        "assetConditionNotes": "all set",
+        "assetCategory": "electronic",
+        "assetAssignmentStatus": "AVAILABLE"
+    }
+]
+
+
+4. Update assets
+Method : PUT
+url : update-asset
+Request Body :
+{
+        "assetId": "AST-1",
+        "assetName": "laptop",
+        "assetPurchaseDate": "2009-12-11",
+        "assetConditionNotes": "good condition",
+        "assetCategory": "electronic",
+        "assetAssignmentStatus": "AVAILABLE"
+}
+Response Body :
+{
+    "assetId": "AST-1",
+    "assetName": "laptop",
+    "assetPurchaseDate": "2009-12-11T00:00:00.000+00:00",
+    "assetConditionNotes": "good condition",
+    "assetCategory": "electronic",
+    "assetAssignmentStatus": "AVAILABLE"
+}
+
+5. Asset assigned to Employee
+Method : PUT
+url : /asset/{assetId}/{status}
+Request Body :
+    Not required
+Response Body :
+    Asset is assigned successfully./Asset is not Assigned to any employee.
+
+6. Recover asset from Employee
+
+Method : PUT
+url : /asset/{assetId}/{status}
+Request Body :
+    Not Required
+Response Body :
+    Asset is recovered successfully./Asset is not recovered from any employee.
+
+7. Delete assets
+
+Method : DELETE
+url : delete-asset
+Request Body :
+    Not required
+Response Body :
+if deleted successfully
+    Status : 200 OK
+else
+    Status : 500 INTERNAL_SERVER_ERROR
+
